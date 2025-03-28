@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import Providers from './providers'
+import { Web3Provider } from '@/components/providers/Web3Provider'
 
 const TITLE = 'Smile by Openputer'
 const DESCRIPTION = 'A good smile can change every heart!'
@@ -78,10 +79,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 				/>
 			</head>
 			<body className={inter.className}>
-				<Providers>
-					{children}
-					<Analytics />
-				</Providers>
+				<Web3Provider>
+					<Providers>
+						{children}
+						<Analytics />
+					</Providers>
+				</Web3Provider>
 			</body>
 		</html>
 	)

@@ -1,61 +1,80 @@
 # Based Smiles: Immutable USDC Rewards for Genuine Smiles 😊
 
-An innovative Web3 application that uses Openputer AI Oracle (inspired by AgentKit and built on Coinbase Development Platform) to analyze your smile and rewards genuine happiness with USDC cryptocurrency. 
-
-## How It Works
-
-1. 📸 Capture your smile through the app
-2. 🤖 Openputer AI Oracle analyzes your smile's authenticity (scored 1-5)
-3. ✨ Genuine smiles (score > 3) earn 0.001 USDC rewards
-4. 🌐 Winning smiles are stored on-chain and in our gallery
-
-## Technical Stack
-
-### Frontend
-- Next.js with TypeScript
-- Tailwind CSS for styling
-- Privy for Web3 authentication
-- ethers.js for blockchain interactions
+An innovative Web3 application that uses face-api.js to analyze your smile and rewards genuine happiness with USDC cryptocurrency on the Base Network.
 
 ## Features
 
-- 🔐 Web3 wallet authentication via Privy
-- 📸 Real-time camera feed with selfie mode
-- 🤖 Decentralized AI smile analysis via Openputer
+- 🔐 Web3 wallet authentication via RainbowKit
+- 📸 Real-time camera feed with smile detection
+- 🤖 Face expression analysis using face-api.js
 - 💰 Automatic USDC rewards for genuine smiles
-- 👥 Social interactions with "smile back" feature
-- 🖼️ Persistent gallery for winning smiles
 - 📱 Responsive design for all devices
-- 🤓 Optional Nouns-style filter for photos
-- 💝 Community funding mechanism for USDC rewards
+- 🌐 Built on Base Network
 
-## Smart Contract Features
+## Prerequisites
 
-- Decentralized smile analysis via Openputer AI Oracle (built on Coinbase Development Platform)
-- Real-time reward distribution
-- Transparent scoring system
-- Gas-optimized operations on Base Network
+- Node.js 18.x or later
+- npm or yarn
+- A Web3 wallet (MetaMask, Coinbase Wallet, etc.)
+- USDC on Base Network for testing
 
-## Technical Details
+## Setup
 
-### Image Processing
-- Automatic compression for optimal storage
-- Maximum dimensions: 800x600
-- JPEG optimization with quality preservation
-- Mirrored selfie view for natural interaction
+1. Clone the repository:
+```bash
+git clone https://github.com/yourusername/basedsmiles.git
+cd basedsmiles
+```
 
-### Blockchain Integration
-- Base Network compatibility
-- Openputer AI Oracle (inspired by AgentKit) for decentralized smile analysis
-- Built using Coinbase Development Platform
-- Gas-efficient smart contract design
-- Real-time event processing
+2. Install dependencies:
+```bash
+npm install
+```
 
-### Security
-- Secure wallet authentication
-- Protected image storage
-- Rate limiting on submissions
-- Sybil resistance through wallet verification
+3. Download face-api.js models:
+   - Download the following files from [face-api.js weights](https://github.com/justadudewhohacks/face-api.js/tree/master/weights):
+     - tiny_face_detector_model-weights_manifest.json
+     - tiny_face_detector_model-shard1
+     - face_expression_model-weights_manifest.json
+     - face_expression_model-shard1
+   - Place them in the `public/models` directory
+
+4. Create a `.env` file in the root directory with the following variables:
+```env
+# Web3 Configuration
+NEXT_PUBLIC_BASE_RPC_URL=https://mainnet.base.org
+NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID=your_walletconnect_project_id
+
+# USDC Contract Address on Base Network
+NEXT_PUBLIC_USDC_CONTRACT_ADDRESS=0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913
+
+# Reward Configuration
+NEXT_PUBLIC_REWARD_ADDRESS=your_reward_address
+```
+
+5. Start the development server:
+```bash
+npm run dev
+```
+
+6. Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+## How It Works
+
+1. Connect your Web3 wallet
+2. Allow camera access
+3. Smile at the camera
+4. If your smile score is above 70%, you'll receive 0.001 USDC
+5. Your USDC balance will update automatically
+
+## Technical Stack
+
+- Next.js 14 with TypeScript
+- Tailwind CSS for styling
+- RainbowKit for Web3 authentication
+- wagmi for blockchain interactions
+- face-api.js for smile detection
+- Base Network for USDC rewards
 
 ## Contributing
 
@@ -67,4 +86,4 @@ MIT
 
 ---
 
-Built with ❤️ and 😊 on Base Network, powered by Openputer AI Oracle
+Built with ❤️ and 😊 on Base Network
